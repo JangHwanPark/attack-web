@@ -139,7 +139,6 @@ const GlobalNavbar = () => {
             </nav>
             {/* 모바일 반응형 메뉴 */}
             <div className={`${styles.side_menu} ${styles.side_menu_open}`} onClick={handleClick}>
-                {/*{!isResponsiveOpen ? (<GiHamburgerMenu/>) : (<MdOutlineCancel/>)}*/}
                 {!isResponsiveOpen && (<GiHamburgerMenu/>)}
                 {isResponsiveOpen && (
                     <>

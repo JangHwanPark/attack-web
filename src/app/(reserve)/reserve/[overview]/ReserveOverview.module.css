@@ -32,7 +32,7 @@
     /* 상세페이지 아이템 */
     /* [SLB] 상세페이지 아이템 */
     /* 게임 설명 */
-    /* 상세 설명 페이지 콘텐츠 */
+    /* ===== 상세 설명 페이지 콘텐츠 ===== */
     /* [nav] 상세 설명 네비게이션 */ }
     .wrapper .game-overview-cards {
       display: flex;
@@ -259,13 +259,12 @@
         border-left: 1px solid var(--border-color);
         padding-left: 16px; }
 
-/* game-overview */
+/* ==== Main Contents ===== */
 .detail-page {
-  /* [Search Bar] 검색 박스 */
   /* Responsive(max-width: 1300px) - 검색 박스 */ }
   .detail-page .game-overview {
     display: flex;
-    gap: 11.875rem; }
+    gap: 5.875rem; }
   .detail-page .game-cards,
   .detail-page .searched-bar {
     display: none; }

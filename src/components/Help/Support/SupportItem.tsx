@@ -1,12 +1,15 @@
 'use client'
 import React, {useState} from 'react';
-import styles from "@/components/Help/Support/support.module.scss";
+import styles from "@/components/Help/Support/Support.module.scss";
 import SUPPORT_DATA from '@/data/Support/data-support-items.json';
 
 
 /* 문서 출력 컴포넌트 */
 const DocumentList = (): JSX.Element => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [
+      openIndex,
+    setOpenIndex
+  ] = useState<number | null>(null);
 
   const toggleDocumentContent = (index: number) => {
     setOpenIndex(prevIndex => (prevIndex === index ? null : index));

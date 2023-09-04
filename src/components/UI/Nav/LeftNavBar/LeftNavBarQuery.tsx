@@ -23,7 +23,10 @@ type ForumPostPage = {
 const ForumPage = ({path}: {path: string}) => {
     const params = useSearchParams();
     const division = params ? params.get('division') : null;
-    const [posts, setPosts] = useState<ForumPostPage[]>([]);
+    const [
+        posts,
+        setPosts
+    ] = useState<ForumPostPage[]>([]);
 
     useEffect(() => {
         if (division) {

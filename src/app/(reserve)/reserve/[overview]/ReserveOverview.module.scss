@@ -195,7 +195,7 @@
       }
     }
 
-    /* 상세 설명 페이지 콘텐츠 */
+    /* ===== 상세 설명 페이지 콘텐츠 ===== */
     .game-explain-content {
       padding: 50px 25px 30px;
 
@@ -370,12 +370,12 @@
     }
   }
 }
-/* game-overview */
+
+/* ==== Main Contents ===== */
 .detail-page {
-  /* [Search Bar] 검색 박스 */
   .game-overview {
     display: flex;
-    gap: 11.875rem;
+    gap: 5.875rem;
   }
   .game-cards,
   .searched-bar {
@@ -392,10 +392,12 @@
     }
   }
 }
+
 /* 상세 설명 네비게이션 */
 .explain-contents {
   margin: 0;
 }
+
 /* [CheckBox & Link] 대여버튼 */
 .overview-move-wrap {
   margin-top: 2rem;

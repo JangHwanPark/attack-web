@@ -1,0 +1,457 @@
+@use '@/styles/mixins/status-styles';
+
+.container {
+  position: relative;
+  width: 100%;
+}
+
+/* ========================== Navigation ========================== */
+.navbar {
+  width: 300px;
+  height: 100%;
+  background: #0162ff;
+  border-left: 10px solid #0162ff;
+  position: fixed;
+  transition: .5s;
+  overflow: hidden;
+}
+
+.navbar.active {
+  width: 80px;
+}
+
+.navbar ul {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  li {
+    width: 100%;
+    position: relative;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+
+    &:hover,
+    li.hovered {
+      background: #fff;
+    }
+
+    &:nth-child(1) {
+      margin-bottom: 40px;
+      pointer-events: none;
+    }
+
+    a {
+      width: 100%;
+      display: flex;
+      text-decoration: none;
+      color: #fff;
+      position: relative;
+
+      &:hover,
+      a.hovered {
+        color: #0162ff;
+      }
+
+      .nav_icon {
+        max-width: 60px;
+        padding-left: 10px;
+        height: 60px;
+        display: block;
+        text-align: center;
+        line-height: 60px;
+        position: relative;
+
+        svg {
+          font-size: 1.75rem;
+        }
+      }
+
+      .nav_title {
+        height: 60px;
+        padding: 0 10px;
+        display: block;
+        text-align: start;
+        line-height: 60px;
+        white-space: nowrap;
+        position: relative;
+      }
+    }
+  }
+}
+
+/* ========================== Curve Outside ========================== */
+.navbar ul li:hover a::before,
+.navbar ul li.hovered a::before {
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: 35px 35px 0 10px #fff;
+  position: absolute;
+  top: -50px;
+  right: 0;
+  content: '';
+  pointer-events: none;
+}
+
+.navbar ul li:hover a::after,
+.navbar ul li.hovered a::after {
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: 35px -35px 0 10px #fff;
+  position: absolute;
+  bottom: -50px;
+  right: 0;
+  content: '';
+  pointer-events: none;
+}
+
+/* ========================== Main ========================== */
+.main {
+  width: calc(100% - 300px);
+  min-height: 100vh;
+  background: #fff;
+  transition: .5s;
+  position: absolute;
+  left: 300px;
+}
+
+.main.active {
+  width: calc(100% - 80px);
+  left: 80px;
+}
+
+.nav_top {
+  width: 100%;
+  height: 60px;
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav_toggle {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.nav_search {
+  width: 400px;
+  margin: 0 10px;
+  position: relative;
+
+  label {
+    width: 100%;
+    position: relative;
+
+    svg {
+      position: absolute;
+      top: 0;
+      left: 10px;
+      font-size: 1.2rem;
+    }
+
+    input {
+      width: 100%;
+      height: 40px;
+      padding: 5px 20px 0 35px;
+      border: 1px solid #333;
+      border-radius: 40px;
+      outline: none;
+    }
+  }
+}
+
+.nav_user {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  cursor: pointer;
+
+  svg {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+}
+
+/* ========================== Card Box ========================== */
+.card_box {
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 30px;
+  position: relative;
+
+  .card {
+    padding: 30px;
+    background: #fff;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, .08);
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    position: relative;
+
+    .card_numbers {
+      font-size: 2.5rem;
+      font-weight: 500;
+      color: #0162ff;
+      position: relative;
+    }
+
+    .card_name {
+      margin-top: 5px;
+      font-size: 1.1rem;
+      color: #333;
+    }
+
+    .card_icon {
+      font-size: 3.5rem;
+      color: #333;
+    }
+
+    &:hover {
+      background: #0162ff;
+    }
+
+    &:hover .card_numbers,
+    &:hover .card_name,
+    &:hover .card_icon {
+      color: #fff;
+    }
+  }
+}
+
+/* ==== Order Details List ==== */
+.details {
+  width: 100%;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-gap: 30px;
+
+  .recent_orders {
+    min-height: 500px;
+    padding: 20px;
+    display: grid;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 7px 25px rgba(0,0,0,.08);
+    position: relative;
+  }
+
+  .card_header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    h2 {
+      font-weight: 600;
+      color: #0162ff;
+    }
+
+    .card_btn {
+      padding: 5px 10px;
+      position: relative;
+      border-radius: 6px;
+      background: #0162ff;
+      text-decoration: none;
+      color: #fff;
+    }
+  }
+}
+
+.details table {
+  width: 100%;
+  margin-top: 10px;
+  border-collapse: collapse;
+
+  thead td {
+    font-weight: 600;
+  }
+}
+
+.details .recent_orders table tr {
+  border-bottom: 1px solid rgba(0, 0, 0, .1);
+  color: #333;
+
+  &:hover {
+    background: #0162ff;
+    color: #fff;
+  }
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.details .recent_orders table tr td {
+  padding: 10px;
+
+  &:last-child {
+    text-align: end;
+  }
+
+  &:nth-child(2) {
+    text-align: end;
+  }
+
+  &:nth-child(3) {
+    text-align: center;
+  }
+}
+
+.status {
+  &.delivered {
+    @include status-styles.status_style(#8de02c);
+  }
+
+  &.pending {
+    @include status-styles.status_style(#e9b10a);
+  }
+
+  &.return {
+    @include status-styles.status_style(#f00);
+  }
+
+  &.in_progress {
+    @include status-styles.status_style(#1795ce);
+  }
+}
+
+/* ==== New Customers ==== */
+.recent_customer {
+  min-height: 500px;
+  padding: 20px;
+  display: grid;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 7px 25px rgba(0,0,0, .08);
+  position: relative;
+
+  .icon_bx {
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    position: relative;
+    overflow: hidden;
+
+    svg {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+}
+
+.recent_customer table tr:hover, {
+  background: #0162ff;
+  color: #fff;
+
+  td h4, td h4 span {
+    color: #fff;
+  }
+}
+
+.recent_customer table tr td {
+  padding: 12px 10px;
+
+  h4 {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.2rem;
+  }
+
+  span {
+    font-size: 14px;
+    color: #333;
+  }
+}
+
+/* ========================== Responsive Design ========================== */
+/* Mixin 설계중 */
+@media screen and (max-width: 991px) {
+  .navbar {
+    left: -300px;
+  }
+
+  .navbar.active {
+    width: 300px;
+    left: 0;
+  }
+
+  .main {
+    width: 100%;
+    left: 0;
+  }
+
+  .main.active {
+    left: 300px;
+  }
+
+  .card_box {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .details {
+    grid-template-columns: 1fr;
+  }
+
+  .recent_orders {
+    overflow-x: auto;
+  }
+
+  .status.in_progress {
+    white-space: nowrap;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .navbar {
+    width: 100%;
+    left: -100%;
+    z-index: 1000;
+  }
+
+  .navbar.active {
+    width: 100%;
+    left: 0;
+  }
+
+  .card_box {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .card_header {
+    font-size: 20px;
+  }
+
+  .nav_toggle {
+    z-index: 10001;
+  }
+
+  .main.active .nav_toggle {
+    color: #fff;
+    position: fixed;
+    right: 0;
+    left: initial;
+  }
+}

@@ -1,15 +1,15 @@
 'use client'
 import React, {useState} from 'react';
 import styles from "@/app/(reserve)/reserve/[overview]/ReserveOverview.module.scss";
+import Image from "next/image"
+import Link from "next/link";
 import {useSearchParams} from "next/navigation";
 import SvgIconComponent from "@/components/SvgIconComponent";
 import ComplexSvgIconComponent from "@/components/SvgComplexIconComponent";
-import Image from "next/image"
-import getGameInfo from "@/utils/Game/getGameInfo";
 import OverviewText from "@/components/Reserve/Overview/OverviewText/OverviewText";
 import OverviewExplainContent from "@/components/Reserve/Overview/OverviewExplainContent/OverviewExplainContent";
+import getGameInfo from "@/utils/Game/getGameInfo";
 import DATA from '@/data/Reserve/data-overview-information.json';
-import Link from "next/link";
 
 const OverviewMainSection = () => {
     const searchParams = useSearchParams();
@@ -67,6 +67,7 @@ const OverviewMainSection = () => {
                         </span>
                     </div>
                 </div>
+
                 {/* 상세 설명 네비게이션 */}
                 <nav className={styles['explain-bar']}>
                     <OverviewExplainContent title="Genre" subtitle={gameInfo.genre} />
@@ -74,12 +75,14 @@ const OverviewMainSection = () => {
                     <OverviewExplainContent title="가격" subtitle={gameInfo.price} />
                     <OverviewExplainContent title="시간" subtitle={gameInfo?.time} />
                 </nav>
+
                 {/* 예약 안내 (data-overview-information.json) */}
                 <article className={styles['overview-text']}>
                     {DATA.RESERVATION_INFORMATION.map((info, index) => (
                         <OverviewText key={index} title={info.title} contents={info.contents} />
                     ))}
                 </article>
+
                 {/* 예약 안내 체크박스 및 예약버튼 */}
                 <div className={styles['overview-move-wrap']}>
                     <label htmlFor="rent" className={styles['overview-input-label']}>

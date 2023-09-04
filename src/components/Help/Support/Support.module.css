@@ -1,21 +1,21 @@
 /*
-Error: Invalid CSS after "...solid variables": expected ";", was ".$search-border..."
-        on line 16 of ReserveSearchBar.module.scss
+Error: Invalid CSS after "...ttom: variables": expected ";", was ".$border-defaul..."
+        on line 64 of Support.module.scss
 
-11:   .search-box:focus {
-12:     outline: none;
-13:   }
-14: 
-15:   div:not(:last-of-type) {
-16:     border-right: 1px solid variables.$search-border-color;
-17:   }
-18: 
-19:   input {
-20:     padding: 0 3rem;
-21:     width: 100%;
+59:     display: flex;
+60:     justify-content: space-between;
+61:     font-size: 1.1rem;
+62:     font-weight: bold;
+63:     color: #6d6d6d;
+64:     border-bottom: variables.$border-default-1px;
+65: 
+66:     .nav_item {
+67:       padding: 0 1.5rem 0 1.5rem;
+68:       transition: color 0.25s ease-in-out;
+69:       cursor: pointer;
 
 Backtrace:
-ReserveSearchBar.module.scss:16
+Support.module.scss:64
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1308:in `expected'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1238:in `expected'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1233:in `tok!'
@@ -24,7 +24,7 @@ C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:1284:i
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:820:in `try_declaration'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:743:in `declaration_or_ruleset'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:708:in `block_child'
-C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:697:in `block_contents'
+C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:700:in `block_contents'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:689:in `block'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:758:in `declaration_or_ruleset'
 C:/Ruby31-x64/lib/ruby/gems/3.1.0/gems/sass-3.7.4/lib/sass/scss/parser.rb:708:in `block_child'
@@ -49,4 +49,4 @@ C:/Ruby31-x64/bin/sass:32:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Invalid CSS after \"...solid variables\": expected \";\", was \".$search-border...\"\A         on line 16 of ReserveSearchBar.module.scss\A \A 11:   .search-box:focus {\A 12:     outline: none;\A 13:   }\A 14: \A 15:   div:not(:last-of-type) {\A 16:     border-right: 1px solid variables.$search-border-color;\A 17:   }\A 18: \A 19:   input {\A 20:     padding: 0 3rem;\A 21:     width: 100%;"; }
+  content: "Error: Invalid CSS after \"...ttom: variables\": expected \";\", was \".$border-defaul...\"\A         on line 64 of Support.module.scss\A \A 59:     display: flex;\A 60:     justify-content: space-between;\A 61:     font-size: 1.1rem;\A 62:     font-weight: bold;\A 63:     color: #6d6d6d;\A 64:     border-bottom: variables.$border-default-1px;\A 65: \A 66:     .nav_item {\A 67:       padding: 0 1.5rem 0 1.5rem;\A 68:       transition: color 0.25s ease-in-out;\A 69:       cursor: pointer;"; }

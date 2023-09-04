@@ -3,7 +3,7 @@ import styles from "@/app/(reserve)/reserve/home/ReserveHome.module.scss";
 import SvgIconComponent from "@/components/SvgIconComponent";
 import ReserveSearchBar from "@/components/SearchBar/Reserve/ReserveSearchBar";
 
-const ReserveSideNavbar = () => {
+const ReserveTopMenu = () => {
     return (
         /* 자주(최근?)검색 이력 */
         <section className={styles['search-bar']}>
@@ -23,4 +23,4 @@ const ReserveSideNavbar = () => {
     );
 };
 
-export default ReserveSideNavbar;
+export default ReserveTopMenu;

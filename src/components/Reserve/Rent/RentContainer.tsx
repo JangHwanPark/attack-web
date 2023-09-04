@@ -1,13 +1,14 @@
 'use client'
 import React, {useState} from 'react';
 import styles from "@/components/Reserve/Reserve.module.scss";
-import {useSearchParams} from "next/navigation";
-import Calendar from "@/components/Reserve/Rent/Calendar/Calendar";
 import Link from "next/link";
+import Calendar from "@/components/Reserve/Rent/Calendar/Calendar";
 import TimePicker from "@/components/Reserve/Rent/TimePicker/TimePicker";
 import RentModal from "@/components/Reserve/Rent/Modal/RentModal";
+import {useSearchParams} from "next/navigation";
 import {UserProfileData} from "@/types/Account";
 
+/* todo 타임피커 유효성 검사 로직 추가 */
 const RentContainer: React.FC<UserProfileData> = ({ user }) => {
     const [
         showModal,
@@ -45,21 +46,41 @@ const RentContainer: React.FC<UserProfileData> = ({ user }) => {
                 <div className={styles.header}>
                     <span className={styles.title}>예약하기</span>
                     <span className={styles.title}>{' > '}</span>
-                    <Link href={'/reserve/home'}><span className={styles.title}>{game}</span></Link>
+                    <Link href={'/reserve/home'}>
+                        <span className={styles.title}>{game}</span>
+                    </Link>
                 </div>
-                <form className={styles.reserveForm} onSubmit={handleSubmitOpenModal}>
-                    {/* 캘린더 */}
+                <form
+                    className={styles.reserveForm}
+                    onSubmit={handleSubmitOpenModal}
+                >
+                    {/* ===== 캘린더 ===== */}
                     <Calendar onChange={handleDateChange} />
+
                     <div className={styles.wrapper}>
-                        {/* 타임피커 : 시간선택 */}
+                        {/* ===== 타임피커 : 시간선택 ===== */}
                         <TimePicker onChange={handleTimeChange} />
                         <div className={styles['submit-button']}>
-                            <Link href={'/reserve/home'} className={styles.button}>돌아가기</Link>
-                            <button type="submit" className={styles.button}>예약하기</button>
+                            <Link
+                                href={'/reserve/home'}
+                                className={styles.button}
+                            >돌아가기
+                            </Link>
+                            <button
+                                type="submit"
+                                className={styles.button}
+                            >예약하기
+                            </button>
                         </div>
                     </div>
+
+                    {/* ===== Modal Pop-up =====*/}
                     {showModal &&
-                        <RentModal selectedDay={selectedDay} selectedTime={selectedTime} game={game}/>
+                        <RentModal
+                            selectedDay={selectedDay}
+                            selectedTime={selectedTime}
+                            game={game}
+                        />
                     }
                 </form>
             </div>

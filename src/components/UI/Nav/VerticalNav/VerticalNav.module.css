@@ -1,0 +1,81 @@
+/* ========================== Navigation ========================== */
+.navbar {
+  width: 300px;
+  height: 100%;
+  background: #0162ff;
+  border-left: 10px solid #0162ff;
+  position: fixed;
+  transition: .5s;
+  overflow: hidden; }
+
+.navbar ul {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0; }
+  .navbar ul li {
+    width: 100%;
+    position: relative;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px; }
+    .navbar ul li:hover,
+    .navbar ul li li.hovered {
+      background: #fff; }
+    .navbar ul li:nth-child(1) {
+      margin-bottom: 40px; }
+    .navbar ul li a {
+      width: 100%;
+      display: flex;
+      text-decoration: none;
+      color: #fff;
+      position: relative; }
+      .navbar ul li a:hover,
+      .navbar ul li a a.hovered {
+        color: #0162ff; }
+      .navbar ul li a .nav_icon {
+        max-width: 60px;
+        padding-left: 10px;
+        height: 60px;
+        display: block;
+        text-align: center;
+        line-height: 60px;
+        position: relative; }
+        .navbar ul li a .nav_icon svg {
+          font-size: 1.75rem; }
+      .navbar ul li a .nav_title {
+        height: 60px;
+        padding: 0 10px;
+        display: block;
+        text-align: start;
+        line-height: 60px;
+        white-space: nowrap;
+        position: relative; }
+
+/* ========================== Curve Outside ========================== */
+.navbar ul li:hover a::before,
+.navbar ul li.hovered a::before {
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: 35px 35px 0 10px #fff;
+  position: absolute;
+  top: -50px;
+  right: 0;
+  content: '';
+  pointer-events: none; }
+
+.navbar ul li:hover a::after,
+.navbar ul li.hovered a::after {
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  border-radius: 50%;
+  box-shadow: 35px -35px 0 10px #fff;
+  position: absolute;
+  bottom: -50px;
+  right: 0;
+  content: '';
+  pointer-events: none; }
+
+/*# sourceMappingURL=VerticalNav.module.css.map */

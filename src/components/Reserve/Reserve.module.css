@@ -15,13 +15,12 @@
     font-size: 1rem;
     font-weight: bold; }
 
-/* 예약 폼 */
+/* ===== 예약 폼 ===== */
 .reserveForm {
   padding: 20px;
   display: flex;
   justify-content: center;
-  flex-direction: column;
-  gap: 5rem; }
+  flex-direction: column; }
   .reserveForm .wrapper {
     display: flex;
     flex-direction: column;

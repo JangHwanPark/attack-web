@@ -9,11 +9,12 @@ const OverviewAsideSection = () => {
         <section className={styles['game-overview-cards']}>
             {GAME_CARDS.ITEMS.map((game, index) => (
                 <div key={index} className={styles['game-overview-card']}>
-                    {/* 상세페이지 아이템 */}
+                    {/* ===== 상세페이지 아이템 ===== */}
                     <div className={`${styles['game-card']} ${styles['overview-card']}`}>
-                        {/* [SNB] 상세페이지 아이템 */}
+
+                        {/* ===== 상세페이지 아이템 ===== */}
                         <div className={styles['overview-wrapper']}>
-                            {/* 다른게임 */}
+                            {/* ===== 다른게임 ===== */}
                             <Link href={`/reserve/overview?game=${encodeURIComponent(game.title)}`}>
                                 <div className={styles['overview-detail']}>
                                     <div className={styles['game-card-title']}>
@@ -24,7 +25,8 @@ const OverviewAsideSection = () => {
                                     </div>
                                 </div>
                             </Link>
-                            {/* 좋아요 버튼 */}
+
+                            {/* ===== 좋아요 버튼 ===== */}
                             <svg xmlns="http://www.w3.org/2000/svg"
                                  viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                  strokeWidth="2" width={20} height={20} strokeLinecap="round" strokeLinejoin="round"
@@ -33,11 +35,17 @@ const OverviewAsideSection = () => {
                             </svg>
                         </div>
 
-                        {/* 게임 시간 , 가격, 신규 여부 */}
+                        {/* ===== 게임 시간 , 가격, 신규 여부 ===== */}
                         <div className={styles['game-overview-buttons']}>
-                            <div className={`${styles['search-buttons']} ${styles['time-button']}`}>{game.time}</div>
-                            <div className={`${styles['search-buttons']} ${styles['level-button']}`}>{game.price}</div>
-                            <div className={styles['game-stat']}>New</div>
+                            <div className={`${styles['search-buttons']} ${styles['time-button']}`}>
+                                {game.time}
+                            </div>
+                            <div className={`${styles['search-buttons']} ${styles['level-button']}`}>
+                                {game.price}
+                            </div>
+                            <div className={styles['game-stat']}>
+                                New
+                            </div>
                         </div>
                     </div>
                 </div>

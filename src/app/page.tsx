@@ -5,53 +5,54 @@ import Footer from "@/components/UI/Footer/Footer";
 import ToggleMenubar from "@/components/UI/Nav/MenuNavigation/ToggleMenubar";
 import Link from "next/link";
 import Image from "next/image";
-import MAIN_PAGE from "@/data/data-index-page.json";
-import GAME_CARD from '@/data/Game/data-game-card.json';
 
-const Home = (): JSX.Element => {
+const Home = async () => {
     const MenuNavbarProps = [
+        {label:"전체 게임"},
         {label:"대표 게임"},
-        {label:"인기 게임"},
-        {label:"새로운 게임"}
-    ]
+        {label:"인기 게임"}
+    ];
+
+    /* 데이터 패칭 - 동적 데이터 요청 */
+    const API_ENDPOINT = `http://localhost:3000/api/game/main`;
+    const response = await fetch(API_ENDPOINT, { cache: 'no-store' });
+    if (!response.ok) {
+        throw new Error(`Failed with status: ${response.status}`);
+    }
+    const data = await response.json();
+    const factImg = data.data;
 
     return (
         <>
             <GlobalNavbar/>
             <main className={styles.main}>
+                {/* 매장 이미지 */}
                 <div className={styles.contents}>
-                    {/* 게임 카드 (대표게임, 인기게임, 새로운게임) */}
+                    {/* ==== 게임 카드 (대표게임, 인기게임, 새로운게임) ==== */}
                     <section className={styles.games}>
-                        <div className={styles.gamesWrapper}>
-                            <ul className={styles.swiperWrapper}>
+                        <div className={styles.games_wrap}>
+                            <ul className={styles.swiper_wrap}>
                                 <ToggleMenubar props={MenuNavbarProps}/>
                             </ul>
-                            <div className={styles.gamesCard}>
-                                {/* 3x3 그리드 게임 카드 */}
-                                {GAME_CARD.ITEMS.slice(0,6).map((item, index) => (
-                                    <div className={styles.gamesItem} key={index}>
-                                        <Link href={`/game-detail/${item.title}`}>
-                                            <Image
-                                                className={styles.gameImage} src={item.image} width={300} height={200} alt="게임 이미지"/>
-                                            <p className={styles.gameTitle}>{item.title}</p>
-                                            <span>자세히 보기</span>
-                                        </Link>
-                                    </div>
-                                ))}
+                            <div className={styles.game_card}>
+                                {/* ==== 그리드 게임 카드 ==== */}
+                                {factImg && factImg.slice(0, 9).map((item: any, index: any) => (
+                                        <div className={styles.game_item} key={index}>
+                                            <Link href={`/game-detail/${item.title}`}>
+                                                <Image
+                                                    className={styles.game_image}
+                                                    src={item.image}
+                                                    width={300}
+                                                    height={200}
+                                                    alt="게임 이미지"
+                                                />
+                                                <p>{item.title}</p>
+                                                <span>자세히 보기</span>
+                                            </Link>
+                                        </div>
+                                    )
+                                )}
                             </div>
-                        </div>
-                    </section>
-
-                    {/* 메뉴 바로가기 */}
-                    <section className={styles['community-section']}>
-                        <div className={styles['community-wrap']}>
-                            {MAIN_PAGE.ELEMENT.map((item, index) => (
-                                <div className={`${styles.comunity} ${item.title === '이벤트' ? styles['event-item'] : ''}`} key={index}>
-                                    <h3 className={styles.title}>{item.title}</h3>
-                                    <p className={styles.description}>{item.description}</p>
-                                    <Link href={`${item.route}`} className={styles['community-link']}>{item.title} 바로가기</Link>
-                                </div>
-                            ))}
                         </div>
                     </section>
                 </div>

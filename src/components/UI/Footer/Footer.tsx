@@ -13,7 +13,12 @@ const Footer = () => {
                 <div className={styles['ftr-top']}>
                     <div className={styles['ftr-link']}>
                         <Link href={'/'}>
-                            <Image src={NavigationLogo} width={320.79} height={17.8} alt="어택 로고 이미지"/>
+                            <Image
+                                src={NavigationLogo}
+                                width={320.79}
+                                height={17.8}
+                                alt="어택 로고 이미지"
+                            />
                         </Link>
                     </div>
 

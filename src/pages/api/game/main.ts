@@ -1,29 +1,27 @@
 import {NextApiRequest, NextApiResponse} from "next";
 import {connectDB} from "@/utils/mongoDb";
-import {Image} from "@/types/Game";
 
-const mainData = async (
-    request: NextApiRequest,
-    response: NextApiResponse
+const handlerGameData = async (
+    req: NextApiRequest,
+    res: NextApiResponse
 ) => {
     try {
+        // Connect MongoDB
         const client = (await connectDB);
         const db = client.db('GameScore');
-        const imageCollection = db.collection<Image>('Images');
 
-        const imageData: Image[] = await imageCollection.find({}).toArray();
-        response.status(200).json({
+        const gameCollection = await db.collection('Game');
+        const gameData = await gameCollection.find({}).toArray();
+        res.status(200).json({
             success: true,
-            data: {
-                images: imageData
-            }
+            data: gameData
         })
-    } catch (error) {
-        response.status(500).json({
+    } catch (err) {
+        res.status(500).json({
             success: false,
             message: 'Internal Server Error'
         })
     }
 }
 
-export default mainData;
+export default handlerGameData;

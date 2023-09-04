@@ -1,8 +1,7 @@
 'use client'
-import React, {useState} from 'react';
-//import styles from "@/app/(reserve)/reserve/home/ReserveHome.module.scss";
-import useCustomRouter from "@/hooks/useCustomRouter";
+import React from 'react';
 import styles from "@/components/SearchBar/Reserve/ReserveSearchBar.module.scss";
+import useCustomRouter from "@/hooks/useCustomRouter";
 import {BsSearch} from "react-icons/bs";
 
 type inputSearchProps = {
@@ -10,16 +9,12 @@ type inputSearchProps = {
     setInputSearch: React.Dispatch<React.SetStateAction<string>>;
 }
 
-
-
 const ReserveSearchBar = ({inputSearch, setInputSearch}: inputSearchProps) => {
     const {pathname, push, query} = useCustomRouter();
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInputSearch(e.target.value);
     }
-
-    console.log(inputSearch)
 
     return (
         <div className={styles['search-bar']}>

@@ -2,27 +2,31 @@
 
 import React, {useState} from 'react';
 import styles from "@/app/(reserve)/reserve/home/ReserveHome.module.scss";
-import ReserveSideNavbar from "@/components/Reserve/ReserveTopNavbar";
 import ReserveContents from "@/components/Reserve/Home/ReserveContents";
 import ReserveSearchBar from "@/components/SearchBar/Reserve/ReserveSearchBar";
+import ReserveTopMenu from "@/components/Reserve/ReserveTopNavbar";
 
 const ReserveContainer = () => {
+
     const [inputSearch, setInputSearch] = useState('');
+
 
     return (
         <main className={styles['reserve-main']}>
             <div className={styles['reserve-container']}>
-                {/* ReserveTopNavbar : 검색 네비게이션 */}
                 <div className={styles['search-menu']}>
-                    {/* nav - 예약페이지 네비게이션 */}
+                    {/* ===== 예약페이지 검색창 ===== */}
                     <ReserveSearchBar
                         inputSearch={inputSearch}
                         setInputSearch={setInputSearch}
                     />
-                    <ReserveSideNavbar/>
+                    <ReserveTopMenu/>
                 </div>
-                {/* ReserveContents : 메인 콘텐츠 */}
-                <ReserveContents/>
+
+                {/* ===== 메인 콘텐츠 ===== */}
+                <section className={styles['main-container']}>
+                    <ReserveContents/>
+                </section>
             </div>
         </main>
     );

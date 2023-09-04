@@ -12,58 +12,45 @@
   }
 }
 
-.communityLink {
-  text-align: center;
-  padding: 20px 0;
-  background-color: #f9f9f9;
-
-  a {
-    font-size: 20px;
-    color: #007bff;
-    text-decoration: none;
-    cursor: pointer;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
+/* ==== Game Title Nav ==== */
+.swiper_wrap {
+  padding-bottom: 2.5vw;
+  //display: flex;
+  //justify-content: center;
 }
 
-/* 게임 타이틀 */
+/* ==== Game Title ==== */
 .games {
   padding: 5rem 0;
   background: transparent;
 
-  .gamesWrapper {
+  .games_wrap {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
   }
 
-  &-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
+  .game_card {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
   }
 
-  .gamesCard {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-  }
-
-  .gamesItem {
-    width: 28%;
+  .game_item {
     padding: 20px;
     background-color: #ffffff;
     border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, .1);
 
-    &:hover  {
+    &:hover {
       box-shadow: 8px 7px 10px 2px #e5e5e5;
       transform: scale(1.1) translateZ(0);
       transition: transform .3s ease-in-out;
+    }
+
+    p {
+      font-size: 18px;
+      font-weight: 600;
     }
 
     span {
@@ -71,91 +58,29 @@
     }
   }
 
-  .gameImage {
+  .game_image {
     width: 300px;
     height: 200px;
     border-radius: 10px;
     margin-bottom: 10px;
   }
+}
 
-  .gameTitle {
-    font-size: 18px;
-    font-weight: bold;
-  }
-
-  .gameDescription {
-    font-size: 14px;
-    color: #777;
-    margin: 10px 0;
+/* ==== Responsive Design ==== */
+@media screen and (max-width: 1101px) {
+  .games .game_card {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
-/* 게임 타이틀 네비게이션 */
-.swiperWrapper {
-  padding-bottom: 2.5vw;
-  display: flex;
-  justify-content: center;
-
-  &-slide {
-    max-width: 20%;
-    width: auto;
-    padding: 0 20px;
-  }
-
-  button {
-    margin: 0 2rem;
-    background: none;
-    border: none;
+@media screen and (max-width: 991px) {
+  .games .game_card {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* 커뮤니티 */
-.community-section {
-  width: 100%;
-  padding: 5rem 0;
-  background: transparent;
-
-  .community-wrap {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-
-  .comunity {
-    padding: 1.5rem;
-    border: variables.$border-default-1px;
-    border-radius: 8px;
-    text-align: left;
-
-    &:hover {
-      font-weight: bold;
-    }
-  }
-
-  .comunity.event-item {
-    padding: 7rem 1.5rem;
-    grid-row: span 2;
-  }
-
-  .title {
-    margin-bottom: 10px;
-    font-size: 24px;
-    font-weight: bold;
-  }
-
-  .description {
-    font-size: 16px;
-    color: #555;
-    margin-bottom: 20px;
-  }
-
-  .community-link {
-    color: #0070f3;
-    text-decoration: none;
-  }
-
-  .community-wrap {
-    @include Breakpoints.threeColumnGrid(3, 2fr);
-    grid-gap: 20px;
+@media screen and (max-width: 480px){
+  .games .game_card {
+    grid-template-columns: 1fr;
   }
 }

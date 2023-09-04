@@ -72,13 +72,6 @@ export interface PRIMARY_BUTTON_PROPS {
     onClick?: () => void;
 }
 
-/* [Components - button] Social Login Button */
-export interface SOCIAL_LOGIN_BUTTON_PROPS {
-    provider: string;
-    src: StaticImageData;
-    alt: string;
-}
-
 /* [Components - button] Add Comment button */
 export interface COMMENT_PROPS {
     comment: string;

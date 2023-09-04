@@ -1,0 +1,178 @@
+@use '@/styles/variables';
+
+.container {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+
+  /* Support - page, Support - SLB 내부 h1 */
+  h1 {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+
+  p, h2 {
+    margin: 0;
+  }
+}
+
+/* ==== Sidebar ==== */
+.aside {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-right: 1px solid #ccc;
+
+  .aside_menu {
+    margin-top: 3rem;
+
+    .menu_item {
+      padding: 0.5rem;
+      transition: font-weight 0.25s ease-in-out, color 0.15s ease;
+      cursor: pointer;
+    }
+
+    .menu_item:hover {
+      font-weight: bold;
+    }
+
+    .menu_item:active {
+      color: rgb(140, 140, 140);
+    }
+  }
+}
+
+/* ==== Contents ==== */
+.contents {
+  width: 100%;
+  min-height: 100vh;
+  padding: 0 7rem 5rem 7rem;
+
+  .nav_wrap {
+    padding: 2rem .7rem .7rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #6d6d6d;
+    border-bottom: variables.$border-default-1px;
+
+    .nav_item {
+      padding: 0 1.5rem 0 1.5rem;
+      transition: color 0.25s ease-in-out;
+      cursor: pointer;
+
+      &:hover {
+        color: black;
+      }
+
+      &:active {
+        color: #6d6d6d;
+      }
+    }
+  }
+}
+
+/* ==== Header Section ==== */
+.header {
+  margin-top: 3rem;
+
+  .header_section {
+    margin-top: 2rem;
+
+    p {
+      margin: .5rem 0;
+      font-size: .95rem;
+
+      span {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+/* ==== Search Bar ==== */
+.search {
+  width: 300px;
+  padding: 2rem 0 0 0;
+  display: flex;
+
+  .search_wrap {
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    border: variables.$border-default-1px;
+
+    input {
+      width: 35rem;
+      height: 2rem;
+      padding: 1rem;
+      border: none;
+      outline: none;
+    }
+
+    .search_btn {
+      margin-right: 1rem;
+      cursor: pointer;
+      background: none;
+      border: none;
+    }
+  }
+}
+
+/* ==== Document List ==== */
+.mid-section {
+  padding: 3rem 0 7rem 0;
+
+  .support-list {
+    border-bottom: variables.$border-default-1px;
+
+    .support-title {
+      display: flex;
+      flex-direction: row;
+      gap: 2.5rem;
+      padding: 1rem;
+      cursor: pointer;
+
+      .title-number {
+        color: #2b9939;
+        font-weight: bold;
+      }
+    }
+
+    .support-content {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: padding 0.25s ease-out, max-height 0.25s ease-out, opacity 0.25s ease-out;
+    }
+
+    .support-content.open {
+      max-height: 10rem;
+      padding: 1rem;
+      opacity: 1;
+
+      span {
+        word-wrap: break-word;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 991px){
+  .nav_wrap .nav_item {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .nav_wrap .nav_item {
+    font-size: 14px;
+  }
+}

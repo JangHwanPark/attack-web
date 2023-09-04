@@ -1,23 +1,21 @@
 'use client'
-import {signIn} from "next-auth/react";
+import React from "react";
 import styles from './SocialLogin.module.scss';
-import Image from "next/image";
-import {SOCIAL_LOGIN_BUTTON_PROPS} from "@/types/UI";
+import {signIn} from "next-auth/react";
 
-const SocialLoginButton: React.FC<SOCIAL_LOGIN_BUTTON_PROPS> = ({ provider, src, alt }) => {
+type SocialLoginBtnProps = {
+    provider: string;
+    children: React.ReactNode;
+}
+
+const SocialLoginButton = ({ provider, children }: SocialLoginBtnProps) => {
     return (
         <button
             className={styles.social}
             onClick={() => signIn(provider)}
         >
-            <Image
-                className={styles.icon}
-                width={24}
-                height={24}
-                src={src}
-                alt={alt}
-            />
-            <div>{`Login for ${provider}`}</div>
+            {children}
+            <div>{`${provider}로 로그인하기`}</div>
         </button>
     );
 }

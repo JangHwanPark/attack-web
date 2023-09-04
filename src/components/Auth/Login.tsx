@@ -4,8 +4,6 @@ import styles from "./Login.module.scss";
 
 import Link from "next/link";
 import Image from "next/image"
-import github from "/public/github.svg"
-import google from "/public/google.svg"
 
 import {useLogin} from "@/hooks/Auth/useSignIn";
 import SocialLoginButton from "@/components/UI/Button/SocialLogin/SocialLoginButtons";
@@ -14,6 +12,8 @@ import PrimaryCheckBox from "@/components/UI/Input/CheckBox/PrimaryCheckBox";
 import InputBox from "@/components/UI/Input/InputBox";
 import DivisionLine from "@/components/Auth/DivisionLine/DivisionLine";
 import NavigationLogo from "../../../public/img/home-bg-Transparent.png";
+import {SiKakao} from "react-icons/si";
+import {FiTwitter} from "react-icons/fi";
 
 
 const LoginComponent = (): JSX.Element => {
@@ -99,16 +99,12 @@ const LoginComponent = (): JSX.Element => {
                         {/* Social Login */}
                         {/* TODO - 프로바이더 네이버 & 트위터로 변경 */}
                         <div className={styles['login-social']}>
-                            <SocialLoginButton
-                                provider='github'
-                                src={github}
-                                alt='Login for Github'
-                            />
-                            <SocialLoginButton
-                                provider='google'
-                                src={google}
-                                alt='Login for Google'
-                            />
+                            <SocialLoginButton provider='github'>
+                                <SiKakao/>
+                            </SocialLoginButton>
+                            <SocialLoginButton provider='google'>
+                                <FiTwitter/>
+                            </SocialLoginButton>
                         </div>
                     </form>
                 </div>
