@@ -1,5 +1,5 @@
 'use client'
-import React from 'react';
+import React, {Suspense} from 'react';
 import styles from "@/components/SearchBar/Reserve/ReserveSearchBar.module.scss";
 import useCustomRouter from "@/hooks/useCustomRouter";
 import {BsSearch} from "react-icons/bs";
@@ -17,30 +17,31 @@ const ReserveSearchBar = ({inputSearch, setInputSearch}: inputSearchProps) => {
     }
 
     return (
-        <div className={styles['search-bar']}>
-            <input
-                className={styles['search-box']}
-                placeholder={'게임을 입력해주세요.'}
-                type="text"
-                autoFocus
-                onChange={handleInputChange}
-            />
-            <button
-                className={styles['search-button']}
-                onClick={() => {
-                    push({
-                        pathname,
-                        query: {
-                            q: inputSearch
-                        },
-                    })
-                }}
-            >
-                <BsSearch/>
-            </button>
-        </div>
+        <Suspense fallback={<div>Loading...</div>}>
+            <div className={styles['search-bar']}>
+                <input
+                    className={styles['search-box']}
+                    placeholder={'게임을 입력해주세요.'}
+                    type="text"
+                    autoFocus
+                    onChange={handleInputChange}
+                />
+                <button
+                    className={styles['search-button']}
+                    onClick={() => {
+                        push({
+                            pathname,
+                            query: {
+                                q: inputSearch
+                            },
+                        })
+                    }}
+                >
+                    <BsSearch/>
+                </button>
+            </div>
+        </Suspense>
     );
 }
-
 
 export default ReserveSearchBar;

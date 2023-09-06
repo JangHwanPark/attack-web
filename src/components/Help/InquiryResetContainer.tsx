@@ -1,9 +1,9 @@
 'use client'
 import axios from "axios";
-import React, {FormEvent, useEffect, useState} from 'react';
+import React, {FormEvent, Suspense, useEffect, useState} from 'react';
 import { useSearchParams } from 'next/navigation';
 
-const InquiryResetContainer = () => {
+const InquiryResetContainerInner = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [error, setError] = useState('');
@@ -81,5 +81,14 @@ const InquiryResetContainer = () => {
         </form>
     );
 };
+
+const InquiryResetContainer = () => {
+    return (
+        <Suspense fallback={<div>Loading...</div>}>
+            <InquiryResetContainerInner />
+        </Suspense>
+    );
+};
+
 
 export default InquiryResetContainer;

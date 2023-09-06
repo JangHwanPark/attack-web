@@ -7,8 +7,8 @@ const handlerGameData = async (
 ) => {
     try {
         // Connect MongoDB
-        const client = (await connectDB);
-        const db = client.db('GameScore');
+        const db = (await connectDB).db('GameScore');
+        console.log('DB 연결')
 
         const gameCollection = await db.collection('Game');
         const gameData = await gameCollection.find({}).toArray();
@@ -19,7 +19,7 @@ const handlerGameData = async (
     } catch (err) {
         res.status(500).json({
             success: false,
-            message: 'Internal Server Error'
+            message: 'Internal Server Error', err
         })
     }
 }

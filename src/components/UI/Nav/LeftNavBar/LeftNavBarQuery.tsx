@@ -1,6 +1,6 @@
 'use client'
 import axios from "axios";
-import React, {useEffect, useState} from 'react';
+import React, {Suspense, useEffect, useState} from 'react';
 import styles from "@/components/Board/Forum/Forum.module.scss";
 import {ObjectId} from "mongodb";
 import Link from "next/link";
@@ -20,7 +20,7 @@ type ForumPostPage = {
     division: string;
 };
 
-const ForumPage = ({path}: {path: string}) => {
+const ForumPage = ({path}: { path: string }) => {
     const params = useSearchParams();
     const division = params ? params.get('division') : null;
     const [
@@ -82,13 +82,14 @@ const ForumPage = ({path}: {path: string}) => {
     );
 
 
-
     return (
-        <main className={styles.container}>
-            {renderForumHeader()}
-            {renderForumContent()}
-            {renderForumFooter()}
-        </main>
+        <Suspense fallback={<div>Loading...</div>}>
+            <main className={styles.container}>
+                {renderForumHeader()}
+                {renderForumContent()}
+                {renderForumFooter()}
+            </main>
+        </Suspense>
     );
 };
 

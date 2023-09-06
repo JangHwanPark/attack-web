@@ -1,3 +1,7 @@
+GET http://localhost:3000/api/game/main
+Accept: application/json
+
+###
 PUT http://localhost:3000/api/setting/changeEmail
 Content-Type: application/json
 

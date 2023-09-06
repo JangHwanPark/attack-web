@@ -13,14 +13,20 @@ const Home = async () => {
         {label:"인기 게임"}
     ];
 
-    /* 데이터 패칭 - 동적 데이터 요청 */
-    const API_ENDPOINT = `http://localhost:3000/api/game/main`;
-    const response = await fetch(API_ENDPOINT, { cache: 'no-store' });
-    if (!response.ok) {
-        throw new Error(`Failed with status: ${response.status}`);
+    let factImg = null;
+    let error = null;
+
+    try {
+        /* 데이터 패칭 - 동적 데이터 요청 */
+        const response = await fetch(`http://localhost:3000/api/game/item`, { cache: 'no-store' });
+        if (!response.ok) {
+            throw new Error(`Failed with status: ${response.status}`);
+        }
+        const data = await response.json();
+        factImg = data.data;
+    } catch (err) {
+        error = err instanceof Error ? err.message : 'An error occurred';
     }
-    const data = await response.json();
-    const factImg = data.data;
 
     return (
         <>
@@ -57,6 +63,7 @@ const Home = async () => {
                     </section>
                 </div>
             </main>
+            {error && <p style={{color: 'red'}}>Error: {error}</p>}
             <Footer/>
         </>
     )
