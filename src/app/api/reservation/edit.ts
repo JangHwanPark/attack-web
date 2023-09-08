@@ -2,7 +2,7 @@ import {NextApiRequest, NextApiResponse} from "next";
 import {connectDB} from "@/utils/mongoDb";
 import {ObjectId} from "mongodb";
 import {getServerSession} from "next-auth/next";
-import {authOptions} from "@/pages/api/auth/[...nextauth]";
+import {authOptions} from "@/app/api/auth/[...nextauth]";
 
 const putReservationHandler = async (request: NextApiRequest, response: NextApiResponse) => {
     if (request.method !== 'PUT') return response.status(405).end();
