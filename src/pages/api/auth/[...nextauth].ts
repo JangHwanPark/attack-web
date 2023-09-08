@@ -43,7 +43,7 @@ export const authOptions: NextAuthOptions = {
             /**
              * 사용자에게 보여질 입력 필드.
              * credentials : 사용자가 로그인 폼에서 입력한 이메일과 비밀번호
-             **/
+             */
             credentials: {
                 email: {label: "Email", type: "email"},
                 password: {label: "password", type: "password"},
