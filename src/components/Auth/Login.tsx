@@ -55,8 +55,18 @@ const LoginComponent = (): JSX.Element => {
                     </Link>
                     <form className={styles.form} onSubmit={handleSubmit} noValidate>
                         {/* E-mail & Password Input Box */}
-                        <InputBox name={'email'} type={'email'} label={'이메일을 입력하세요.'} autoComplete={'current-email'}/>
-                        <InputBox name={'password'} type={'password'} label={'비밀번호를 입력하세요.'} autoComplete={'current-password'}/>
+                        <InputBox
+                            name={'email'}
+                            type={'email'}
+                            label={'이메일을 입력하세요.'}
+                            autoComplete={'current-email'}
+                        />
+                        <InputBox
+                            name={'password'}
+                            type={'password'}
+                            label={'비밀번호를 입력하세요.'}
+                            autoComplete={'current-password'}
+                        />
 
                         {/* Error */}
                         {error &&
