@@ -1,7 +1,7 @@
 import {NextApiRequest, NextApiResponse} from "next";
 import {connectDB} from "@/utils/mongoDb";
 import {getServerSession} from "next-auth/next";
-import {authOptions} from "@/app/api/auth/[...nextauth]";
+import {authOptions} from "@/pages/api/auth/[...nextauth]";
 
 type NEW_RESERVATION_TYPE = {
     division: string;

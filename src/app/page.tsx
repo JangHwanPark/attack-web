@@ -1,8 +1,8 @@
 import React from "react";
 import styles from './page.module.scss';
-import GlobalNavbar from "@/components/UI/Nav/GlobalNavbar";
+import GlobalNavbar from "@/components/Nav/GlobalNavbar";
 import Footer from "@/components/UI/Footer/Footer";
-import ToggleMenubar from "@/components/UI/Nav/MenuNavigation/ToggleMenubar";
+import ToggleMenubar from "@/components/Nav/MenuNavigation/ToggleMenubar";
 import Link from "next/link";
 import Image from "next/image";
 

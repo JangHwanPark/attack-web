@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from "@/components/Dashboard/User/Account.module.scss";
 import UserPasswordUpdateButton from "@/components/Dashboard/User/Setting/Button/UserPasswordUpdateButton";
-import {authOptions} from "@/app/api/auth/[...nextauth]";
+import {authOptions} from "@/pages/api/auth/[...nextauth]";
 import {getServerSession} from "next-auth";
 import SideNavigationMenu from "@/components/Dashboard/User/Setting/AsideNavbar";
 

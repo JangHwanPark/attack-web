@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from "@/components/Board/Forum/Forum.module.scss";
-import GlobalNavbar from "@/components/UI/Nav/GlobalNavbar";
+import GlobalNavbar from "@/components/Nav/GlobalNavbar";
 import Footer from "@/components/UI/Footer/Footer";
 
 const ForumLayout = ({children}: { children: React.ReactNode }) => {

@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import {connectDB} from "@/utils/mongoDb";
-import {authOptions} from "@/app/api/auth/[...nextauth]";
+import {authOptions} from "@/pages/api/auth/[...nextauth]";
 import {Db, ObjectId} from "mongodb";
 import {getServerSession} from "next-auth";
 //import {Session} from "@/types/Auth";

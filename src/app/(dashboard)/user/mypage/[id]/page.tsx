@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from '@/components/Dashboard/User/MyPage/MyPage.module.scss';
 import {getServerSession} from "next-auth";
-import {authOptions} from "@/app/api/auth/[...nextauth]";
+import {authOptions} from "@/pages/api/auth/[...nextauth]";
 import Image from "next/image";
 import Link from "next/link";
 import DefaultIMAGE from "../../../../../../public/img/Logo.jpg";
@@ -9,7 +9,7 @@ import getConnectServerDb from "@/utils/DB/getConnectServerDb";
 import LoadingForum from "@/components/UI/Loading/LoadingForum";
 import formatDate from "@/utils/formatDate";
 import calculateDuration from "@/utils/calculateDuration";
-import ToggleMenubar from "@/components/UI/Nav/MenuNavigation/ToggleMenubar";
+import ToggleMenubar from "@/components/Nav/MenuNavigation/ToggleMenubar";
 
 const DynamicAccount = async () => {
     /* 세션 검증 */

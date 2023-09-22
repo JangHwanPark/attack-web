@@ -2,12 +2,12 @@
 import React, {useEffect, useRef, useState} from "react";
 import styles from './Navbar.module.scss';
 import {useSession} from "next-auth/react";
-import GlobalNavItems from "@/components/UI/Nav/GlobalNavItems";
-import UserModal from "@/components/UI/Nav/UserModal/UserModal";
+import GlobalNavItems from "@/components/Nav/GlobalNavItems";
+import UserModal from "@/components/Nav/UserModal/UserModal";
 import AppLink from "@/components/UI/Link/AppLink";
 import Link from "next/link";
 import Image from "next/image";
-import NavigationLogo from "../../../../public/img/home-bg-Transparent.png";
+import NavigationLogo from "../../../public/img/home-bg-Transparent.png";
 import {FaRegCircleUser} from "react-icons/fa6";
 import {BsBell} from "react-icons/bs";
 import GLOBAL_NAV from "@/data/data-global-nav.json";
@@ -93,7 +93,12 @@ const GlobalNavbar = () => {
                 {/* 네비게이션 로고 */}
                 <div className={styles.logo}>
                     <Link href={'/'}>
-                        <Image src={NavigationLogo} width={220.79} height={17} alt="어택 로고 이미지"/>
+                        <Image
+                            src={NavigationLogo}
+                            width={220.79}
+                            height={17}
+                            alt="어택 로고 이미지"
+                        />
                     </Link>
                 </div>
 

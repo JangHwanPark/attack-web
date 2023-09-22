@@ -1,5 +1,5 @@
 import React from 'react';
-import GlobalNavbar from "@/components/UI/Nav/GlobalNavbar";
+import GlobalNavbar from "@/components/Nav/GlobalNavbar";
 import Footer from "@/components/UI/Footer/Footer";
 
 const ReserveLayout = ({children}: { children: React.ReactNode }) => {

@@ -1,9 +1,8 @@
 'use client'
 import React from 'react';
-import styles from "@/components/UI/Nav/Navbar.module.scss";
+import styles from "@/components/Nav/Navbar.module.scss";
 import AppLink from "@/components/UI/Link/AppLink";
 import {signOut, useSession} from "next-auth/react";
-import NavbarLink from "@/components/UI/Nav/NavbarLink";
 
 const LoginButton = () => {
     const {data: session} = useSession();

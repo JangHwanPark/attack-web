@@ -2,7 +2,7 @@ import {NextApiRequest, NextApiResponse} from "next";
 import {connectDB} from "@/utils/mongoDb";
 import {ObjectId} from "mongodb";
 import {getServerSession} from "next-auth/next";
-import {authOptions} from "@/app/api/auth/[...nextauth]";
+import {authOptions} from "@/pages/api/auth/[...nextauth]";
 
 const deleteReservationHandler = async (request: NextApiRequest, response: NextApiResponse) => {
     if (request.method !== 'POST') return response.status(405).end();
